@@ -1,41 +1,26 @@
 <script>
-	import Nav from '../components/Nav.svelte';
+  import Nav from "../components/Nav.svelte";
 
-	export let segment;
+  export let segment;
 
-	    import { dictionary, locale } from 'svelte-i18n';
-    
-    // ...
-    dictionary.set({
-        en: {
-            app: {
-                title: 'Filmic',
-                subtitle: 'A curated collection of eighties movies',
-            },
-        },
-        ar: {
-            app: {
-                title: 'فيلميك',
-                subtitle: 'مجموعة أفلام مختارة من الثمنينات',
-            },
-        },
-    });
-    locale.set('ar');
+  import { setupI18n, locale } from "../services/i18n";
+
+  setupI18n({ withLocale: "lt" });
+  locale.set("lt");
 </script>
 
-<style>
-	main {
-		position: relative;
-		max-width: 56em;
-		background-color: white;
-		padding: 2em;
-		margin: 0 auto;
-		box-sizing: border-box;
-	}
-</style>
-
-<Nav {segment}/>
-
+<Nav {segment} />
 <main>
-	<slot></slot>
+  <slot />
 </main>
+
+<style>
+  main {
+    position: relative;
+    max-width: 56em;
+    background-color: white;
+    padding: 2em;
+    margin: 0 auto;
+    box-sizing: border-box;
+  }
+</style>
