@@ -2,6 +2,28 @@
     "nav" : {
         "linkText1": "Pagrindinis",
         "linkText2": "Apie",
-        "linkText3": "Kontaktai"
+        "linkText3": "Kontaktai",
+        "localeSwitcher": {
+            "language": "Kalba"
+        }
+    },
+    "About": {
+        "Title": "Apie",
+        "H1": "Tai yra apie H1",
+        "P": "P"
+    },
+    "Contacts": {
+        "Title": "Kontaktai",
+        "H1": "Tai yra kontaktu H1",
+        "P": "P"
+    },
+    "Index": {
+        "Title": "Pagrindinis",
+        "H1": "Tai yra pagrindinis H1",
+        "P": "P"
+    },
+    "PreloadError": "Puslapis nerastas!",
+    "footer": {
+        "contacts": "contacts value"
     }
 }

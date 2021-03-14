@@ -1,22 +1,32 @@
 <script>
   import { createEventDispatcher } from "svelte";
-  export let value = "lt";
+  import Select, {Option} from '@smui/select';
+  let languages = ['lt', 'en', 'ru'];
+  export let value = 'lt';
+  import { _ } from "../../services/i18n";
+
   const dispatch = createEventDispatcher();
+
   function switchLocale(event) {
-    event.preventDefault();
-    dispatch("locale-changed", event.target.value);
+    dispatch("locale-changed", event);
   }
 </script>
 
 <div class="choose-locale">
   <div class="select">
-    <select {value} on:change={switchLocale}>
-      <option value="lt">Lithuanian</option>
-      <option value="en">English</option>
-      <option value="ru">Russian</option>
-    </select>
+    <Select
+      bind:value={value}
+      label="{$_('nav.localeSwitcher.language')}"
+      anchor$class="select-width"
+      menu$class="select-width"
+    >
+      {#each languages as language}
+        <Option value={language} on:click={ () => { switchLocale(language) } }>{language}</Option>
+      {/each}
+    </Select>
   </div>
 </div>
+
 
 <style>
   .choose-locale {
@@ -25,8 +35,22 @@
   }
   .select {
     margin: 0 1rem 1rem;
+    max-width: 55px;
   }
-  * :global(.select-width) {
-    min-width: 200px;
+
+  :global(.mdc-select__selected-text)  {
+    min-width: 0!important;
   }
+
+  :global(.mdc-menu) {
+      min-width: 0!important;
+    }
+
+  :global(.select-width) {
+    max-width: 55px;
+    width: 55px;
+  }
+
+
+
 </style>

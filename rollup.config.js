@@ -9,6 +9,8 @@ import { terser } from 'rollup-plugin-terser';
 import config from 'sapper/config/rollup.js';
 import pkg from './package.json';
 import json from '@rollup/plugin-json';
+import postcss from "rollup-plugin-postcss";
+
 
 const mode = process.env.NODE_ENV;
 const dev = mode === 'development';
@@ -34,8 +36,11 @@ export default {
 			svelte({
 				compilerOptions: {
 					dev,
-					hydratable: true
-				}
+					hydratable: true,
+					css: true,
+				},
+				emitCss: false,
+				
 			}),
 			url({
 				sourceDir: path.resolve(__dirname, 'src/node_modules/images'),
@@ -46,8 +51,20 @@ export default {
 				dedupe: ['svelte']
 			}),
 			commonjs(),
+			postcss({
+				extensions: ['.scss', '.sass'],
+				extract: false,
+				minimize: true,
+				use: [
+				  ['sass', {
+					includePaths: [
+					  './src/theme',
+					  './node_modules'
+					]
+				  }]
+				]
+			  }),
 			json(),
-
 			legacy && babel({
 				extensions: ['.js', '.mjs', '.html', '.svelte'],
 				babelHelpers: 'runtime',
@@ -89,7 +106,7 @@ export default {
 				compilerOptions: {
 					dev,
 					generate: 'ssr',
-					hydratable: true
+					hydratable: true,
 				},
 				emitCss: false
 			}),
@@ -101,7 +118,20 @@ export default {
 			resolve({
 				dedupe: ['svelte']
 			}),
-			commonjs()
+			commonjs(),
+			postcss({
+				extensions: ['.scss', '.sass'],
+				extract: false,
+				minimize: true,
+				use: [
+				  ['sass', {
+					includePaths: [
+					  './src/theme',
+					  './node_modules'
+					]
+				  }]
+				]
+			  }),
 		],
 		external: Object.keys(pkg.dependencies).concat(require('module').builtinModules),
 		preserveEntrySignatures: 'strict',

@@ -3,6 +3,8 @@
   export let error;
 
   const dev = process.env.NODE_ENV === "development";
+  console.log(error)
+  import { _, locale, setupI18n } from "../services/i18n";
 </script>
 
 <svelte:head>
@@ -11,7 +13,7 @@
 
 <h1>{status}</h1>
 
-<p>{error.message}</p>
+<p>{$_(error.name)}</p>
 
 {#if dev && error.stack}
   <pre>{error.stack}</pre>
