@@ -14,7 +14,7 @@ let _activeLocale;
 // loading state
 const isDownloading = writable(false);
 console.log()
-const MESSAGE_FILE_URL_TEMPLATE = "http://localhost:3000/lang/{locale}.json";
+const MESSAGE_FILE_URL_TEMPLATE = "/lang/{locale}.json";
 
 
 function setupI18n(options) {

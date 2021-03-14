@@ -1,23 +1,20 @@
 <script>
-  import successkid from "images/successkid.jpg";
+  import svarainiai from "images/svarainiai2.jpg";
+  import { _ } from "../services/i18n";
 </script>
 
 <svelte:head>
-  <title>Sapper project template</title>
+  <title>{$_('Index.Title')}</title>
 </svelte:head>
 
-<h1>Great success!</h1>
+<h1>{$_('Index.H1')}</h1>
+<p>{$_('Index.P1')}</p>
+
 
 <figure>
-  <img alt="Success Kid" src={successkid} />
-  <figcaption>Have fun with Sapper!</figcaption>
+  <img alt="{$_('Index.P1')}" src={svarainiai} />
 </figure>
 
-<p>
-  <strong
-    >Try editing this file (src/routes/index.svelte) to test live reloading.</strong
-  >
-</p>
 
 <style>
   h1,
@@ -28,7 +25,7 @@
   }
 
   h1 {
-    font-size: 2.8em;
+    font-size: 2em;
     text-transform: uppercase;
     font-weight: 700;
     margin: 0 0 0.5em 0;
@@ -48,9 +45,5 @@
     margin: 1em auto;
   }
 
-  @media (min-width: 480px) {
-    h1 {
-      font-size: 4em;
-    }
-  }
+
 </style>

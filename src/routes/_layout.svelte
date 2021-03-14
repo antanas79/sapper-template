@@ -15,7 +15,7 @@
   {#if $isLocaleLoaded}
     <Nav {segment} />
     <main>
-      <div class="content-container">
+      <div class="content-container main-content-container">
         <slot />
       </div>
     </main>
@@ -55,12 +55,13 @@
       width: 100px;
     }
 
-    :global(.content-container) {
-      max-width: 1300px;
-      width: 100%;
-    }
+  :global(.content-container) {
+    max-width: 1300px;
+    width: 100%;
+  }
 
-    :global(.mdc-menu) {
-      min-width: 0!important;
-    }
+  :global(.main-content-container) {
+	margin-bottom: 50px;
+  }
+
 </style>
