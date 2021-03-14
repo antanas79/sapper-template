@@ -1,7 +1,8 @@
 <script>
   import Nav from "../components/Nav.svelte";
   import Footer from "../components/Footer.svelte";
-  import { RingLoader } from '../../node_modules/svelte-loading-spinners/src/index';
+  // import { RingLoader } from '../../node_modules/svelte-loading-spinners/src/index';
+  // import { RingLoader } from '../../node_modules/svelte-loading-spinners/src/index';
 
   export let segment;
  
@@ -23,7 +24,7 @@
   {:else}
     <div class="loader-container">
       <div>
-        <RingLoader size="100" color="#FF3E00" unit="px" duration="5s"></RingLoader>
+        <!-- <RingLoader size="100" color="#FF3E00" unit="px" duration="5s"></RingLoader> -->
       </div>
     </div>
   {/if}

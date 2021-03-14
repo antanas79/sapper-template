@@ -7,7 +7,7 @@ const { PORT, NODE_ENV } = process.env;
 const dev = NODE_ENV === 'development';
 
 
-const url = dev ? '/' : '<your-app-name>'; // <<-
+const url = dev ? '/' : 'sapper-template'; 
 
 polka() // You can also use Express
 	.use(
